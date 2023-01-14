@@ -8,26 +8,42 @@
 </head>
 <body>
     <h1>home</h1>
+    <input type="text">
     <div class="mail-button">Send email</div>
 
     <script>
         const sendButton = document.querySelector(".mail-button");
+        const input = document.querySelector("input");
 
-        const urlMail = "http://localhost:5000/sendMail"
+        const urlMail = "http://localhost:5000"
 
         sendButton.addEventListener("click", () =>{
             console.log("bruh")
-            sendMail();
+            sendData();
         })
 
         async function sendMail(){
             console.log("email called")
-                const res = await fetch(urlMail,
+                const res = await fetch(urlMail + "sendMail",
                 {
                     method: "GET"
                 })
                 console.log(res)
             }
+        async function sendData(){
+            if (input.value === "") {return}
+            const res = await fetch(urlMail,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type" : "application/json"
+                },
+                body: JSON.stringify({
+                    parcel: input.value,
+                    email: "olitarpar@hotmail.com"
+                })
+            })
+        }
 
     </script>
 </body>

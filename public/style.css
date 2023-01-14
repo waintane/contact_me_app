@@ -1,10 +1,50 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: sans-serif;
+}
+body{
+    height: 80vh;
+    background-image: url("./img/george-washington-bridge-g5345f962c_1920.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
 .formulaire{
     display: flex;
-    margin: 0px auto;
+    margin: 20vh auto 0px auto;
+    height: 50vh;
     width: 50vw;
 }
 form{
     display: flex;
     flex-direction: column;
-    width: 100%;
+    background-color: rgb(19, 19, 19);
+    color: white;
+    border-radius: 0px 20px 20px 0px;
+    padding: 30px;
+    width: 25vw;
+}
+.contact_me{
+    width: 25vw;
+    background-color: rgba(0, 0, 0, 0.432);
+    backdrop-filter: blur(2px);
+    padding: 30px;
+    border-radius: 20px 0px 0px 20px;
+}
+@media screen and (max-width: 700px) {
+    .formulaire{
+        width: 100vw;
+        flex-direction: column;
+    }
+    form{
+        width: 100%;
+    }
+    .contact_me{
+        width: 100%;
+
+    }
 }

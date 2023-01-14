@@ -1,0 +1,10 @@
+.formulaire{
+    display: flex;
+    margin: 0px auto;
+    width: 50vw;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}

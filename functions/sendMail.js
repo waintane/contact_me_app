@@ -1,7 +1,6 @@
 const nodemailer = require("nodemailer");
 
-const sendMail = (message) => {
-    console.log(message)
+const sendMail = (name, email, subject, content) => {
     return new Promise((resolve, reject) => {
         const transporter = nodemailer.createTransport({
             service:"gmail",
@@ -13,8 +12,8 @@ const sendMail = (message) => {
         const mail_configs = {
             from: "test.dev.9840@gmail.com",
             to:"olitarpar@hotmail.com",
-            subject:"Testing coding 101 email",
-            text: "Just checking if this email will be sent"
+            subject:`${subject} from ${email}`,
+            text: `sender name: ${name}. ${content}`
         }
         transporter.sendMail(mail_configs, (err, data) => {
             if(err) throw err;

@@ -11,19 +11,20 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.on("sendEmail", () => sendMail("worked"));
 
-app.get("/sendMail", (req,res) => {
-    app.emit("sendEmail");
-})
-
 app.post("/", (req,res) => {
 
-    const { parcel, email } = req.body
-    console.log(email)
+    const { name, email, subject, content } = req.body
+    console.log(name);
+    console.log(email);
+    console.log(subject);
+    console.log(content);
 
-    if(!parcel) {
+    if(!email) {
         return res.status(400).send({status: "failed"})
     }
     res.status(200).send({status: "recieved"})
+
+    sendMail(name, email, subject, content)
 })
 
 app.listen(PORT, () =>{

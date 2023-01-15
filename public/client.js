@@ -1,5 +1,8 @@
 const sendButton = document.querySelector("#mail-button");
-const input = document.querySelector("input");
+const inputName = document.querySelector("#input_name");
+const inputMail = document.querySelector("#input_mail");
+const inputSubject = document.querySelector("#input_subject");
+const inputContent = document.querySelector("#content");
 
 const urlMail = "http://localhost:5000"
 
@@ -17,7 +20,8 @@ async function sendMail(){
         console.log(res)
     }
 async function sendData(){
-    if (input.value === "") {return}
+    console.log("called")
+    if (inputMail.value === "") {return}
     const res = await fetch(urlMail,
     {
         method: "POST",
@@ -25,8 +29,10 @@ async function sendData(){
             "Content-Type" : "application/json"
         },
         body: JSON.stringify({
-            parcel: input.value,
-            email: "olitarpar@hotmail.com"
+            name: inputName.value,
+            email: inputMail.value,
+            subject: inputSubject.value,
+            content: inputContent.value
         })
     })
 }

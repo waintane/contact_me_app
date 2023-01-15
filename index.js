@@ -14,10 +14,6 @@ app.on("sendEmail", () => sendMail("worked"));
 app.post("/", (req,res) => {
 
     const { name, email, subject, content } = req.body
-    console.log(name);
-    console.log(email);
-    console.log(subject);
-    console.log(content);
 
     if(!email) {
         return res.status(400).send({status: "failed"})

@@ -64,6 +64,10 @@ textarea {
     height: clamp(200px, 50vh, 500px);
 
 }
+form p {
+    margin-top: 10px;
+    color: rgb(194, 194, 194);
+}
 
 
 .formulaire{
